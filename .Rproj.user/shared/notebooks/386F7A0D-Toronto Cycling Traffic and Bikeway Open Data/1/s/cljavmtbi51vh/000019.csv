@@ -1,0 +1,5 @@
+"0","bike_network_data %>% "
+"0","  drop_na(UPGRADED) %>%"
+"0","  filter(UPGRADED != 0) %>%"
+"0","  ggplot(mapping = aes(y = INSTALLED, x = UPGRADED)) +"
+"0","  geom_point()"

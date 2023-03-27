@@ -1,0 +1,79 @@
+---
+title: "Toronto Cycling Traffic and Bikeway Open Data"
+format:
+  html: 
+    theme:
+      light: flatly
+      dark:  darkly
+    fontsize: 1.2em
+    linestretch: 1.7
+---
+
+```{r warning=FALSE, output=FALSE}
+library(readr)
+library(tidyverse)
+library(janitor)
+library(ggplot2)
+
+library(rgdal)
+library(ggplot2)
+library(rgeos)
+library(raster)
+library(sf)
+
+library(broom)
+```
+
+```{r}
+
+bike_network_data <- read_csv("Bikeway Data/Bike network data.csv", 
+    col_types = cols(`_id` = col_integer(), 
+        OBJECTID = col_integer(), SEGMENT_ID = col_double(), 
+        LAST_EDIT_DATE = col_datetime(format = "%Y-%m-%dT%H:%M:%S")))
+
+bike_network_data %>%
+  glimpse()
+```
+
+```{r}
+bike_network_data %>% 
+  drop_na(INSTALLED) %>%
+  filter(INSTALLED != 0) %>%
+  ggplot(mapping = aes(x = INSTALLED, y = ROADCLASS)) +
+  geom_point()
+```
+
+```{r}
+bike_network_data %>% 
+  drop_na(UPGRADED) %>%
+  filter(UPGRADED != 0) %>%
+  ggplot(mapping = aes(y = INSTALLED, x = UPGRADED)) +
+  geom_point()
+```
+
+ 
+
+```{r}
+bike_network_data
+
+bike_network_data_spdf <- readOGR( 
+  dsn = paste0(getwd(), "/Bikeway Data/."))
+
+crs(bike_network_data_spdf)
+summary(bike_network_data_spdf)
+```
+
+```{r}
+bike_network_data_spdf <- sf::st_as_sf(bike_network_data_spdf)
+plot(bike_network_data_spdf, col="#f2f2f2", bg="skyblue")
+```
+
+```{r}
+ggplot() +
+  geom_polygon(
+    data = bike_network_data_spdf,
+    mapping = aes(x = long, y = lat, group = group),
+    fill="#69b3a2",
+    color="white") +
+  theme_void() 
+```

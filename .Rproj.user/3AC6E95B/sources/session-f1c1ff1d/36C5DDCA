@@ -1,0 +1,31 @@
+{
+    "id": "36C5DDCA",
+    "path": "/cloud/project/Toronto Cycling Traffic and Bikeway Open Data.qmd",
+    "project_path": "Toronto Cycling Traffic and Bikeway Open Data.qmd",
+    "type": "quarto_markdown",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1679921388337.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "rmdVisualMode": "true",
+        "rmdVisualModeLocation": "1248:4210",
+        "rmdVisualCollapsedChunks": "",
+        "rmdVisualWrapConfigured": "true",
+        "docOutlineVisible": "0",
+        "cursorPosition": "65,0",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1679925950,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1679925950953,
+    "read_only": false,
+    "read_only_alternatives": []
+}

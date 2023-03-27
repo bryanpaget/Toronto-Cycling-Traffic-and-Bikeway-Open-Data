@@ -1,0 +1,3 @@
+"0","bike_network_data_spdf <- sf::st_as_sf(bike_network_data_spdf)"
+"0","plot(bike_network_data_spdf, col=""#f2f2f2"", bg=""skyblue"")"
+"2","Warning: plotting the first 9 out of 20 attributes; use max.plot = 20 to plot all"
